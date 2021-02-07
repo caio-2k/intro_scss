@@ -1,0 +1,78 @@
+//Detalhe: clique em Watch Scss para compilar
+
+//Importando variables (posso fazer isso com qualquer parte do codigo): 
+@import "./variables";
+
+//Um exemplo também seria com as bolas, poderia importar de um arquivo.
+
+
+//Funções no CSS:
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+//Func com param: 
+// @mixin flexCenter($justify_content, $flex_direction) {
+//   display: flex;
+//   justify-content: $justify_content;
+//   align-items: center;
+//   flex-direction: $flex_direction;
+// }
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  //Chamando função center:
+  @include flexCenter();
+
+  //Chamando função com param:
+  // @include flexCenter(space-between, column);
+
+  width: 100vw;
+  height: 100vh;
+  background-color: #1a1a1a;
+}
+
+.bola1{
+
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+  background-color: $primaryColor;
+
+  //Consigo chamar a tag a que está dentro da div na propria div
+  //Ao compilar já é inserido no arquivo style.css
+  a{
+    color: #333;
+  }
+
+  //Alterando a cor do background ao passar o mouse, também compilado
+  //no arquivo original
+  &:hover{
+    background-color: blue;
+  }
+
+} 
+
+.bola2{
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+  background-color: green;
+} 
+
+.bola3{
+  width: 200px;
+  height: 200px;
+
+  border-radius: 50%;
+  background-color: blue;
+} 
